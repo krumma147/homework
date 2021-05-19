@@ -1,13 +1,13 @@
 //Bai 1
 function checkStringExist(string1, string2) {
-    return string1.search(string2)>=0;
+    return string1.search(string2) >= 0;
 }
 
 // console.log(checkStringExist("I love you", "him"));
 
 //Bai 2
 function shortenString(string) {
-    return string.slice(0,8) + "..."; 
+    return string.slice(0, 8) + "...";
 }
 
 // console.log(shortenString("Xin chao moi nguoi"));
@@ -28,7 +28,7 @@ function repeatString1(string) {
         string = string + string;
         //count++;
     }
-    return string;// + count;
+    return string; // + count;
 }
 
 //console.log(repeatString1("a"));
@@ -66,3 +66,12 @@ function reverseString(string) {
 // console.log(reverseString("Hi i'm Minh"));
 
 //Bai 8
+
+
+//Bai 9
+
+function isUpperCase(string) {
+    return string == string.toUpperCase();
+}
+
+// console.log(isUpperCase("ASDASD"));
