@@ -24,14 +24,15 @@ function capitalizeString(string) {
 
 function repeatString1(string) {
     //var count = 0;
+    var output = "";
     for (let i = 0; i < 10; i++) {
-        string = string + string;
+        output += string;
         //count++;
     }
-    return string; // + count;
+    return output //+ count;
 }
 
-//console.log(repeatString1("a"));
+console.log(repeatString1("a"));
 
 //Bai 5
 
