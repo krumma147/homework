@@ -32,7 +32,7 @@ function repeatString1(string) {
     return output //+ count;
 }
 
-console.log(repeatString1("a"));
+// console.log(repeatString1("a"));
 
 //Bai 5
 
@@ -67,7 +67,11 @@ function reverseString(string) {
 // console.log(reverseString("Hi i'm Minh"));
 
 //Bai 8
+function compareReverse(string) {
+    return string == reverseString(string);
+}
 
+// console.log(compareReverse("acca"));
 
 //Bai 9
 
