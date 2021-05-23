@@ -111,3 +111,50 @@ function similarity(array1, array2) {
 // console.log(similarity([1, 2, 3, 6, 9], [4, 3, 2, 5, 7, 9]));
 
 //B10
+function symmetricDifference(array1, array2) {
+
+}
+
+//B12
+
+function random_hex_color_code() {
+    const HEX = [];
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    HEX.push(r, g, b);
+    return HEX;
+}
+
+// console.log(random_hex_color_code());
+
+//B14
+
+function checkIncrease(array) {
+    var i = 0;
+    while (array[i] < array[i + 1]) {
+        i++;
+    }
+    if ((i + 1) == array.length) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// console.log(checkIncrease([2, 4, 8, 6]));
+
+//B15
+function checkDecrese(array) {
+    var i = 0;
+    while (array[i] >= array[i + 1] && array[i] % 2 != 0) {
+        i++;
+    }
+    if ((i + 1) == array.length && array[array.length - 1] % 2 != 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//console.log(checkDecrese([9, 7, 5, 3, 2])); //Thuat toan hoi dai,
