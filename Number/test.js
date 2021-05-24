@@ -70,16 +70,14 @@ function sumgcd(number) {
 
 function sortNumber(number) {
     const output = number.toString().split("");
-    for (var numbers in output) {
-        numbers = parseInt(numbers);
-    }
-    output.sort();
     var countzero = 0;
     for (var numbers in output) {
+        numbers = parseInt(numbers);
         if (numbers == 0) {
             countzero++;
         }
     }
+    output.sort();
     const zeronumber = output.slice(0, countzero + 1);
     for (var numbers in zeronumber) {
         output.splice(0, numbers, numbers);
@@ -88,4 +86,4 @@ function sortNumber(number) {
     return parseInt(output.join(""));
 }
 
-console.log(sortNumber(50370510070));
+// console.log(sortNumber(50370510070));
