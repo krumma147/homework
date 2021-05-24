@@ -86,4 +86,4 @@ function sortNumber(number) {
     return parseInt(output.join(""));
 }
 
-// console.log(sortNumber(50370510070));
+// console.log(sortNumber(5037605107));
