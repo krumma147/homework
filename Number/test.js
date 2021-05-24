@@ -69,18 +69,23 @@ function sumgcd(number) {
 //B6
 
 function sortNumber(number) {
-    const output = [];
-    while (number != 0) { // sai diem dung cua vong lap 
-        output.push(number % 10);
-        number = number / 10;
+    const output = number.toString().split("");
+    for (var numbers in output) {
+        numbers = parseInt(numbers);
     }
-    output.sort;
-    for (var y in output) {
-        if (y == 0) {
-            output.shift;
+    output.sort();
+    var countzero = 0;
+    for (var numbers in output) {
+        if (numbers == 0) {
+            countzero++;
         }
     }
-    return output.join("");
+    const zeronumber = output.slice(0, countzero + 1);
+    for (var numbers in zeronumber) {
+        output.splice(0, numbers, numbers);
+    }
+    // output.splice(0, countzero, zeronumber);
+    return parseInt(output.join(""));
 }
 
-// console.log(sortNumber(53751));
+console.log(sortNumber(50370510070));
