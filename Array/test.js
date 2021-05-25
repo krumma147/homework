@@ -1,6 +1,6 @@
-//B1
+//B1 - thêm check arr - bỏ var dùng let
 function minNumber(array) {
-    var min = array[0];
+    let min = array[0];
     array.filter(number => {
         if (number < min) {
             min = number;
@@ -11,7 +11,7 @@ function minNumber(array) {
 
 // console.log(minNumber([2, 1, 3]));
 
-//B2
+//B2 // tìm số lớn thứ 2 
 function maxNumber(array) {
     var max = array[0];
     array.filter(number => {
@@ -32,7 +32,7 @@ function sortStudent(array) {
 
 // console.log(sortStudent(['Nam', 'Hoa', 'Tuấn']));
 
-//B4
+//B4 thử dùng filter
 
 function Sum() {
     var i = 0;
@@ -48,7 +48,7 @@ function Sum() {
 
 // console.log(Sum());
 
-//B5
+//B5 check mảng
 
 function convertNumberArray(array) {
     const output = array.map(number => number % 2);
@@ -56,7 +56,7 @@ function convertNumberArray(array) {
 }
 // console.log(convertNumberArray([5, 3, 6, 8, 2]));
 
-//B6
+//B6 bỏ khai báo, gán giá trị từ aray.map luôn
 
 function filterlongest(array) {
     const output = [];
@@ -88,13 +88,13 @@ function swapRandom(array) {
     const number = array.length;
     const index1 = Math.floor(Math.random() * number);
     const index2 = Math.floor(Math.random() * number);
-    [array[index1], array[index2]] = [array[index2], array[index1]];
+    [array[index1], array[index2]] = [array[index2], array[index1]]; //update ý tưởng
     return array;
 }
 
 // console.log(swapRandom([3, 7, 9, 11, 5, 19]));
 
-//B9
+//B9 bỏ phần push đi gán giá trị trực tiếp 
 
 function similarity(array1, array2) {
     const output = [];
@@ -128,7 +128,7 @@ function random_hex_color_code() {
 
 // console.log(random_hex_color_code());
 
-//B14
+//B14 - bỏ else
 
 function checkIncrease(array) {
     var i = 0;

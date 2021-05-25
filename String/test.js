@@ -15,7 +15,7 @@ function shortenString(string) {
 //Bai 3
 
 function capitalizeString(string) {
-    return string.replace(string[0], string[0].toUpperCase());
+    return string.toLowerCase().replace(string[0], string[0].toUpperCase());
 }
 
 // console.log(capitalizeString("taasd"));
