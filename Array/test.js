@@ -51,69 +51,112 @@ function Sum() {
 //B5 check mảng
 
 function convertNumberArray(array) {
-    const output = array.map(number => number % 2);
-    return output;
+    if (Array.isArray(array)) {
+        const output = array.map(number => number % 2);
+        return output;
+    }
+    return "Error, Input Is Not an Array";
 }
-// console.log(convertNumberArray([5, 3, 6, 8, 2]));
+console.log(convertNumberArray([5, 3, 6, 8, 2]));
 
-//B6 bỏ khai báo, gán giá trị từ aray.map luôn
+//B6 --
 
 function filterlongest(array) {
-    const output = [];
-    const max = array[0].length;
-    array.map(string => {
-        if (string.length >= max) {
-            output.push(string);
+    if (Array.isArray(array)) {
+        let max = array[0].length;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].length > max) {
+                max = array[i].length;
+            }
         }
+        const output = array.filter(string => string.length >= max);
         return output;
-    })
-    return output;
+    }
+    return "Error, Input Is Not an Array";
 }
 
-// console.log(filterlongest(['aba', 'aa', 'ad', 'c', 'vcd']));
+// console.log(filterlongest(['aa', 'aba', 'ad', 'c', 'vcd', 'asdd']));
 
 //B7
 
 function randomElement(array) {
-    const number = array.length;
-    const index = Math.floor(Math.random() * number);
-    return array[index];
+    if (Array.isArray(array)) {
+        const number = array.length;
+        const index = Math.floor(Math.random() * number);
+        return array[index];
+    }
+    return "Error, Input Is Not an Array";
 }
 
-// console.log(randomElement([3, 7, 9, 11]));
+//console.log(randomElement([3, 7, 9, 11]));
 
 //B8
 
 function swapRandom(array) {
-    const number = array.length;
-    const index1 = Math.floor(Math.random() * number);
-    const index2 = Math.floor(Math.random() * number);
-    [array[index1], array[index2]] = [array[index2], array[index1]]; //update ý tưởng
-    return array;
+    if (Array.isArray(array)) {
+        const number = array.length;
+        const index1 = Math.floor(Math.random() * number);
+        const index2 = Math.floor(Math.random() * number);
+        [array[index1], array[index2]] = [array[index2], array[index1]]; //update ý tưởng
+        return array;
+    }
+    return "Error, Input Is Not an Array";
 }
 
 // console.log(swapRandom([3, 7, 9, 11, 5, 19]));
 
-//B9 bỏ phần push đi gán giá trị trực tiếp 
+//B9 cần tối ưu thuật toán - sai trong trường hợp trong 1 mảng có 2 ptu bằng nhau
 
 function similarity(array1, array2) {
-    const output = [];
-    array1.filter(number1 => {
-        array2.filter(number2 => {
-            if (number2 == number1) {
-                output.push(number2);
+    if (Array.isArray(array1) && Array.isArray(array2)) {
+        const output = [];
+        array1.filter(number1 => {
+                for (const number2 of array2) {
+                    if (number1 == number2) {
+                        output.push(number1)
+                    }
+                }
+            })
+            // })
+            // for (const number1 of array1) {
+            //     for (const number2 of array2) {
+            //         if (number1 == number2) {
+            //             output.push(number1)
+            //         }
+            //     }
+            // }
+        return output.sort();
+    }
+    return "Error, Input Is Not an Array";
+}
+
+//console.log(similarity([1, 2, 3, 6, 9], [4, 3, 2, 5, 7, 9])); //2,3,9
+
+//B10 // Cần tối ưu thuật toán - sai trong trường hợp 1 mảng chứa 2 ptu giống nhau
+function symmetricDifference(array1, array2) {
+    if (Array.isArray(array1) && Array.isArray(array2)) {
+        // array1.filter(number1 => {
+        //     array2.filter(number2 => {
+        //         if (number2 == number1) {
+        //             output.push(number2);
+        //         }
+        //     })
+        // })
+        const simila = similarity(array1, array2);
+        const arr = array1.concat(array2).sort();
+        simila.filter(number => {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] == number) {
+                    arr.splice(i, 2); // số lượng cắt = 2 bởi ở đây có 2 mảng luôn chứa ít nhất 2 ptu = nhau
+                }
             }
         })
-    })
-    return output;
+        return arr;
+    }
+    return "Error, Input Is Not an Array";
 }
 
-// console.log(similarity([1, 2, 3, 6, 9], [4, 3, 2, 5, 7, 9]));
-
-//B10
-function symmetricDifference(array1, array2) {
-
-}
+console.log(symmetricDifference([1, 2, 3, 5, 9, 8, 6], [4, 3, 2, 9, 6])); //1,2,2,3,3,4,5,6,6,8,9,9 -- 2,3,9,6
 
 //B12
 
@@ -137,9 +180,8 @@ function checkIncrease(array) {
     }
     if ((i + 1) == array.length) {
         return true;
-    } else {
-        return false;
     }
+    return false;
 }
 
 // console.log(checkIncrease([2, 4, 8, 6]));
@@ -152,9 +194,8 @@ function checkDecrese(array) {
     }
     if ((i + 1) == array.length && array[array.length - 1] % 2 != 0) {
         return true;
-    } else {
-        return false;
     }
+    return false;
 }
 
 //console.log(checkDecrese([9, 7, 5, 3, 2])); //Thuat toan hoi dai,

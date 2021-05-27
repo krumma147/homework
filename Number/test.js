@@ -2,7 +2,7 @@
 //B1
 
 function TheTichHinhCau(r) {
-    return (4 * 3.14 * (r ** 3)) / 3;
+    return (4 * Math.PI * (r ** 3)) / 3;
 }
 
 // console.log(TheTichHinhCau(2));
@@ -10,7 +10,7 @@ function TheTichHinhCau(r) {
 //B2
 
 function sumBetween(number1, number2) {
-    var sum = 0;
+    let sum = 0;
     while (number1 < number2) {
         number1++;
         sum += number1;
@@ -23,8 +23,8 @@ function sumBetween(number1, number2) {
 //B3
 
 function checkPalindrome(number) {
-    var i = 2;
-    var count = 0;
+    let count = 0;
+    let i = 2;
     while (i <= Math.round(Math.sqrt(number))) {
         if (number % i == 0) {
             count++;
@@ -38,8 +38,8 @@ function checkPalindrome(number) {
 
 //B4
 function sumPalindrome(number) {
-    var i = 1;
-    var sum = 0;
+    let i = 1;
+    let sum = 0;
     while (i <= number) {
         i++;
         if (checkPalindrome(i)) {
@@ -53,8 +53,8 @@ function sumPalindrome(number) {
 
 //B5
 function sumgcd(number) {
-    var i = 0;
-    var sum = 0;
+    let i = 0;
+    let sum = 0;
     while (i <= number) {
         i++;
         if (number % i == 0) {
@@ -70,8 +70,8 @@ function sumgcd(number) {
 
 function sortNumber(number) {
     const output = number.toString().split("");
-    var countzero = 0;
-    for (var numbers in output) {
+    let countzero = 0;
+    for (let numbers in output) {
         numbers = parseInt(numbers);
         if (numbers == 0) {
             countzero++;
@@ -79,7 +79,7 @@ function sortNumber(number) {
     }
     output.sort();
     const zeronumber = output.slice(0, countzero + 1);
-    for (var numbers in zeronumber) {
+    for (let numbers in zeronumber) {
         output.splice(0, numbers, numbers);
     }
     // output.splice(0, countzero, zeronumber);
