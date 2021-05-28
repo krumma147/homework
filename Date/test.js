@@ -51,3 +51,27 @@ function getAge(dateofbirth) {
 // console.log(getAge("5-23-2001"));
 
 //B9:
+
+function nextNewYear() {
+    const present = new Date();
+    const newyear = new Date(present.getFullYear() + 1, 0, 1, 0, 0, 0, 0);
+    const days = Math.round((newyear.valueOf() - present.valueOf()) / 1000 / 3600 / 24);
+    return days + " left";
+}
+
+// console.log(nextNewYear());
+
+//B10
+
+function timeAfter(time, second) {
+    const timeinput = new Date;
+    const arr = time.split(":");
+    timeinput.setHours(arr[0]);
+    timeinput.setMinutes(arr[1]);
+    timeinput.setSeconds(arr[2]);
+    timeinput.setMilliseconds(0);
+    const timeoutput = new Date(timeinput.valueOf() + second * 1000);
+    return timeoutput.getHours() + ":" + timeoutput.getMinutes() + ":" + timeoutput.getSeconds();
+}
+
+// console.log(timeAfter("9:20:56", 100));
