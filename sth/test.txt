@@ -1,0 +1,69 @@
+
+function getAllUser() {
+    let getListAPI = 'https://todonew412.herokuapp.com/api/list';
+    fetch(getListAPI)
+        .then((response) => response.json())
+        .then((get) => {let html = get.map(e=>
+                `<p>${e._id}</p>STH
+                <p>${e.name}</p>`)
+            document.getElementById("allID").innerHTML = html;
+        })
+            //document.getElementById('allID').innerHTML = get.name})
+}
+
+function getIdinput() {
+    let id = document.getElementById("inputID").value;
+    //console.log(id);
+    if(id == ""){
+        alert("Chua nhap ID de tim");
+    }else
+    {
+        let getUserAPI = 'https://todonew412.herokuapp.com/api/get/' + id;
+        fetch(getUserAPI)
+            .then((response) => response.json())
+            .then((get) => console.log(get))
+    }
+}
+
+function createUser() {
+    let username = document.getElementById("username").value;
+    let id = Math.round(Math.random() *100) + 1;
+    (username == "") ? alert("Vui long nhap ten") : console.log(`${username} ${id}`);
+    
+    let createAPI = 'https://todonew412.herokuapp.com/api/create'
+    fetch(createAPI,{
+        method : 'POST',
+        body: JSON.stringify({
+            name:username,
+        }),
+    })
+    .then((response) => response.json())
+    .then((get) => console.log(get))
+}
+
+function updateUser() {
+    let fixedID = document.getElementById("fixedID").value;
+    let fixedName = document.getElementById("fixedName").value;
+    console.log(`${fixedID}, ${fixedName}`)
+    const updateAPI = 'https://todonew412.herokuapp.com/api/update?id=' + fixedID;
+    fetch(updateAPI, {
+        method: 'POST',
+        body: JSON.stringify({
+            name:fixedName,
+        }),
+        headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+}
+
+function deleteUser() {
+    let id = document.getElementById("deleteID").value;
+    //console.log(id,100);
+    let deleteAPI = 'https://todonew412.herokuapp.com/api/delete/' + id;
+    fetch(deleteAPI,{method:'POST'})
+        .then((response) => response.json())
+        .then((json) => console.log(`Da xoa thanh cong data co id = ${id}`));
+}

@@ -29,6 +29,12 @@ function checkWeekend() {
 console.log(checkWeekend());
 
 //B4: chưa hiểu rõ đề
+function toMinnutes() {
+    const time = new Date;
+    return time.getMinutes() + time.getHours() * 60 + " minutes";
+}
+
+console.log(toMinnutes());
 
 //B5:
 function daysPassed() {
@@ -45,10 +51,10 @@ function daysPassed() {
 function getAge(dateofbirth) {
     const birth = Date.parse(dateofbirth);
     const present = new Date;
-    return Math.round((present.valueOf() - birth.valueOf()) / 1000 / 3600 / 24 / 365);
+    return Math.round((present - birth) / 1000 / 3600 / 24 / 365);
 }
 
-// console.log(getAge("5-23-2001"));
+console.log(getAge("5-23-2001"));
 
 //B9:
 
@@ -61,7 +67,7 @@ function nextNewYear() {
 
 // console.log(nextNewYear());
 
-//B10
+//B10 thêm dk kiểm tra
 
 function timeAfter(time, second) {
     const timeinput = new Date;

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: flex;">
+        <h1>Console all users</h1>
+        <button onclick='getAllUser()'>Get</button>
+    </div>
+    
+    <div id="allID">
+        
+    </div>
+
+    <div>
+        <h1>Get user by id</h1>
+        <input type="text" name="input value" id="inputID" value="" placeholder="ID">
+        <button onclick="getUserByID()">Get</button>
+    </div>
+    <p id="userByid"></p>
+    <div>
+        <h1>Create User</h1>
+        <input type="text" name="create user" id="username" placeholder="User Name" value="">
+        <button onclick="createUser()">Create</button>
+        <p id="newUser"></p>
+    </div>
+    
+    <div>
+        <h1>Update User</h1>
+        <input type="text" name="user ID" id="fixedID" placeholder="ID">
+        <input type="text" name="fixed user name" id="fixedName" placeholder="Name">
+        <button onclick="updateUser()">Fixed</button>
+    </div>
+
+    <div>
+        <h1>Delete User</h1>
+        <input type="text" name="delete" id="deleteID" placeholder="User ID" value="">
+        <button onclick="deleteUser()">Delete</button>
+    </div>
+
+    <script src="test.js"></script>
+</body>
+</html>

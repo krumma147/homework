@@ -38,7 +38,7 @@ function getValue(object) {
     return output;
 }
 
-// console.log(getValue(users[0]));
+ console.log(getValue(users[0]));
 
 //B3
 
